@@ -9,17 +9,13 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    // Mock credentials
     const userCredentials = { username: 'user', password: 'user123' };
     const gramPanchayatCredentials = { username: 'grampanchayat', password: 'gp123' };
-
     const credentials = loginType === 'user' ? userCredentials : gramPanchayatCredentials;
 
     if (username === credentials.username && password === credentials.password) {
-      // Store login type in localStorage
       localStorage.setItem('loginType', loginType);
       localStorage.setItem('isAuthenticated', 'true');
-      // Redirect based on login type
       if (loginType === 'user') {
         navigate('/');
       } else {
@@ -31,28 +27,39 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <div className="bg-white p-8 rounded-xl shadow-lg max-w-md w-full">
-        <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">लॉगिन</h1>
+    <div 
+      className="min-h-screen flex items-center justify-center p-6 bg-cover bg-center bg-no-repeat relative"
+      style={{
+        backgroundImage: "url('https://archive.indiaspend.com/wp-content/uploads/village_620.png')",
+      }}
+    >
+      {/* Overlay for subtle blur and contrast */}
+      <div className="absolute inset-0 backdrop-blur-xs  bg-opacity-100"></div>
+
+      {/* Login Card */}
+      <div className="relative  bg-opacity-15 backdrop-blur-xl p-10 rounded-3xl shadow-xl max-w-md w-full border border-opacity-20 transform transition-all hover:scale-105">
+        <h1 className="text-4xl font-bold text-center mb-8  tracking-wide drop-shadow-md">
+          ‖ लॉगिन ‖
+        </h1>
 
         {/* Login Type Selection */}
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-8 space-x-4">
           <button
             onClick={() => setLoginType('user')}
-            className={`px-4 py-2 mx-2 rounded-lg text-lg font-semibold ${
+            className={`px-6 py-2.5 cursor-pointer rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 ${
               loginType === 'user'
-                ? 'bg-blue-500 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                ? 'bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-md'
+                : 'bg-white bg-opacity-30 text-black hover:bg-opacity-40'
             }`}
           >
             युजर लॉगिन
           </button>
           <button
             onClick={() => setLoginType('grampanchayat')}
-            className={`px-4 py-2 mx-2 rounded-lg text-lg font-semibold ${
+            className={`px-6 py-2.5 rounded-full cursor-pointer text-lg font-medium transition-all duration-300 transform hover:scale-105 ${
               loginType === 'grampanchayat'
-                ? 'bg-blue-500 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                ? 'bg-gradient-to-r from-red-500 to-blue-500 text-white shadow-md'
+                : 'bg-white bg-opacity-30 text-black hover:bg-opacity-40'
             }`}
           >
             ग्रामपंचायत लॉगिन
@@ -60,37 +67,39 @@ const Login = () => {
         </div>
 
         {/* Login Form */}
-        <div className="space-y-4">
+        <div className="space-y-6">
           <div>
-            <label className="block text-lg font-medium text-gray-700 mb-1">
+            <label className="block text-base font-medium text-white mb-2">
               युजरनेम
             </label>
             <input
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3  bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all duration-300"
               placeholder="युजरनेम प्रविष्ट करा"
             />
           </div>
           <div>
-            <label className="block text-lg font-medium text-gray-700 mb-1">
+            <label className="block text-base font-medium text-white mb-2">
               पासवर्ड
             </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3  bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all duration-300"
               placeholder="पासवर्ड प्रविष्ट करा"
             />
           </div>
           {error && (
-            <p className="text-red-500 text-center text-lg">{error}</p>
+            <p className="text-red-300 text-center text-base font-medium animate-pulse">
+              {error}
+            </p>
           )}
           <button
             onClick={handleLogin}
-            className="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white text-lg font-semibold py-3 rounded-lg hover:from-blue-600 hover:to-blue-800 transition-all duration-300"
+            className="w-full bg-gradient-to-r cursor-pointer from-red-600 to-red-700 text-white text-lg font-semibold py-3 rounded-lg hover:from-green-700 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
           >
             लॉगिन करा
           </button>
