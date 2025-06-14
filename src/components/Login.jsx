@@ -9,7 +9,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    const userCredentials = { username: 'user', password: 'user123' };
+    const userCredentials = { username: 'user', password: 'Tej123' };
     const gramPanchayatCredentials = { username: 'grampanchayat', password: 'gp123' };
     const credentials = loginType === 'user' ? userCredentials : gramPanchayatCredentials;
 

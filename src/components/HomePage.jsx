@@ -21,7 +21,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-green-500 to-blue-600 text-white p-8 pt-24 text-center">
+      <div className="bg-gradient-to-r from-green-500 to-blue-600 text-white p-8 pt-15 text-center">
         <h1 className="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight drop-shadow-xl animate-fade-in">
           माझे गाव
         </h1>

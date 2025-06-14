@@ -13,7 +13,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-gray-800 to-gray-900 text-gray-100 p-4 flex justify-around items-center fixed top-0 w-full z-50 shadow-lg">
+    <nav className="bg-gradient-to-r from-gray-800 to-gray-900 text-gray-100 p-4 flex justify-around overflow-auto items-center fixed top-0 w-full z-50 shadow-lg">
       {isAuthenticated ? (
         <>
           {loginType === 'user' ? (

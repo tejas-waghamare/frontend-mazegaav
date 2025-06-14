@@ -242,7 +242,7 @@ const GramPanchayatDashboard = () => {
         } md:translate-x-0 md:static md:top-0 md:bottom-0 z-40 overflow-y-auto`}
       >
         <div className="flex items-center justify-between p-4 border-b border-green-700">
-          <h2 className="text-2xl font-bold">ग्रामपंचायत</h2>
+          <h2 className="text-2xl mt-5 font-bold">ग्रामपंचायत</h2>
           <button
             className="md:hidden"
             onClick={() => setIsSidebarOpen(false)}
