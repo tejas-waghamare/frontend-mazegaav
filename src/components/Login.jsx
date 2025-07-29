@@ -120,6 +120,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  
 
   const handleLogin = () => {
     const userCredentials = { username: 'user', password: 'Tej123' };
@@ -139,9 +140,23 @@ const Login = () => {
     }
   };
 
+const fillCredentials = (type) => {
+    if (type === 'user') {
+      setUsername('user');
+      setPassword('Tej123');
+      setLoginType('user');
+    } else {
+      setUsername('grampanchayat');
+      setPassword('gp123');
+      setLoginType('grampanchayat');
+    }
+    setError('');
+  };
+
+
   return (
     <div
-      className="min-h-screen flex items-center justify-center p-6 bg-cover bg-center bg-no-repeat relative"
+      className="min-h-screen flex items-center justify-center p-4 sm:p-6 bg-cover bg-center bg-no-repeat relative"
       style={{
         backgroundImage: "url('https://archive.indiaspend.com/wp-content/uploads/village_620.png')",
       }}
@@ -150,21 +165,21 @@ const Login = () => {
       <div className="absolute inset-0 backdrop-blur-xs bg-opacity-100"></div>
 
       {/* Credential Box - User Login */}
-      <div className="absolute top-20 left-5 bg-gradient-to-br from-sky-400 via-purple-200 to-white text-transparent bg-clip-text bg-opacity-70 p-4 rounded-lg shadow-md text-sm font-medium  backdrop-blur-md z-10 animate-bounce">
+      <div onClick={() => fillCredentials('user')} className="absolute cursor-pointer top-10 left-4 sm:top-25 sm:left-5 bg-gradient-to-br from-sky-400 via-purple-200 to-white text-transparent bg-clip-text bg-opacity-70 p-4 rounded-lg shadow-md text-sm font-medium  backdrop-blur-md z-10 animate-bounce">
         <h2 className="font-bold mb-2 text-gray-900">युजर लॉगिन:</h2>
         <p>Username: <span className="font-semibold">user</span></p>
         <p>Password: <span className="font-semibold">Tej123</span></p>
       </div>
 
       {/* Credential Box - Grampanchayat Login */}
-      <div className="absolute top-20 right-5 bg-gradient-to-br from-red-200 via-purple-300 to-white text-transparent bg-clip-text bg-opacity-70 p-4 rounded-lg shadow-md text-sm font-medium backdrop-blur-md z-10 animate-bounce">
+      <div onClick={() => fillCredentials('grampanchayat')} className="absolute top-10 right-4 sm:top-25 sm:right-5 cursor-pointer  bg-gradient-to-br from-red-200 via-purple-300 to-white text-transparent bg-clip-text bg-opacity-70 p-4 rounded-lg shadow-md text-sm font-medium backdrop-blur-md z-10 animate-bounce">
         <h2 className="font-bold mb-2 text-gray-900 ">ग्रामपंचायत लॉगिन:</h2>
         <p>Username: <span className="font-mono ">grampanchayat</span></p>
         <p>Password: <span className="font-semibold">gp123</span></p>
       </div>
 
       {/* Login Card */}
-      <div className="relative bg-opacity-15 backdrop-blur-xl p-10 rounded-3xl shadow-xl max-w-md w-full border border-opacity-20 transform transition-all hover:scale-105 z-10">
+      <div className="relative bg-opacity-15 backdrop-blur-xl p-10  rounded-3xl shadow-xl max-w-md w-full border border-opacity-20 transform transition-all hover:scale-105 z-10">
         <h1 className="text-4xl font-bold text-center mb-8 tracking-wide drop-shadow-md text-white">
           ‖ लॉगिन ‖
         </h1>
